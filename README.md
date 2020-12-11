@@ -1748,9 +1748,15 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Can you explain your data model, data schema to me?
+   Todo is a child table of User because a todo cannot exist without a user, and there can be multiple todos to a user.
 2. Can you explain how you connected your API to a database?
+   In SeedData I am using the save method to save the instances of Users. The process from the controller to the model and back is described below.
 3. Can you explain the flow of data from client through the backend system and back to the client?
+   First you need to create your API endpoint in the tables controller, inside of the endpoint in your controller you will need to invoke a method from the tables services, services will invoke the method,
+   and go to the services implementation for the body of the method, but inside of services implemtation you call your repository and invoke the method in the repository. The repository will refer to the
+   table model to know how to contruct your data. Then it will go back up the chain until it provides the client their response.
 4. How did you handle querying in your application: custom querying vs JPA Querying?
+  I didn't do any custom querries as of now, but if I did you can call the method in the service implementation whatever you want, but if you are using JPA to do your query you have to use keywords.
 
 ## Instructions
 
